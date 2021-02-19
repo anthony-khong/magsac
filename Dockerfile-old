@@ -1,0 +1,9 @@
+FROM python:3.8
+
+RUN apt-get update && apt-get install -y cmake libopencv-dev libeigen3-dev
+
+RUN cd /opt \
+    && git clone https://github.com/danini/magsac --recursive \
+    && cd /opt/magsac \
+    && git reset --hard 8c87bb4cafe38d598a5c8a577b72e8d9fac9dcc0 \
+    && pip install .
